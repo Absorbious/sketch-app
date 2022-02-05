@@ -22,3 +22,7 @@ html{
 .container div:hover{
     background-color: black;
 }
+
+.active{
+    background-color: black;
+}
