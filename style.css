@@ -8,9 +8,16 @@ html{
     border: 1px solid black;
     margin: auto;
     display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    box-sizing: content-box;
 }
 
 .container div{
-    border: 1px solid black;
-    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+}
+
+.container div:hover{
+    background-color: black;
 }
