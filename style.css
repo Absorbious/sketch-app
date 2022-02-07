@@ -16,7 +16,7 @@ html{
 .container div{
     border: none;
     box-sizing: border-box;
-    transition: 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: 0.1s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .container div:hover{
