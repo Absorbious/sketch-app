@@ -5,7 +5,6 @@ let boxes = input * input;
 const divs = container.childNodes;
 let containerWidth = container.clientWidth;
 let boxWidth = (containerWidth / input).toString();
-//let boxWidthStr = boxWidth.toString();
 let resetBtn = document.querySelector('.reset');
 let newInput;
 let newBoxes;
@@ -27,6 +26,7 @@ resetBtn.addEventListener('click', () => {
 
 
 function makeBoxes(boxCount, boxSize){
+    
     for(let i = 1; i <= boxCount; i++){
         container.appendChild(document.createElement('div')); 
     };
