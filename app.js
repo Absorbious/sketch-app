@@ -2,13 +2,14 @@ const body = document.querySelector("body");
 const container = document.querySelector(".container");
 const rainbowBtn = document.querySelector(".rainbow");
 const resetBtn = document.querySelector(".reset");
+const blackBtn = document.querySelector(".black");
 const divs = container.childNodes;
 let input = 0;
 let boxes = input * input;
 let containerWidth = container.clientWidth;
 let boxWidth = (containerWidth / input).toString();
-
 let num = () => {return Math.floor(Math.random() * 255) + 1;};
+let blackRgb = 0;
 let newInput;
 let newBoxes;
 let newBoxWidth;
@@ -18,6 +19,7 @@ let newBoxWidthStr;
 window.addEventListener("load", firstMake);
 resetBtn.addEventListener("click", newGrid);
 rainbowBtn.addEventListener("click", rainbow);
+blackBtn.addEventListener("click", black);
 
 function firstMake() {
   while (container.firstChild) {
@@ -54,7 +56,7 @@ function makeBoxes(boxCount, boxSize) {
   for (div of divs) {
     div.style.width = `${boxSize}px`;
     div.addEventListener("mouseover", (e) => {
-      e.target.style.backgroundColor = "black";
+      e.target.style.backgroundColor = `rgb(${blackRgb}, ${blackRgb}, ${blackRgb})`;
     });
   }
 }
@@ -62,10 +64,16 @@ function makeBoxes(boxCount, boxSize) {
 function rainbow(){
   for (div of divs) {
     div.addEventListener("mouseover", (e) => {
-      console.log(e.target.style.backgroundColor = `rgb(${num()}, ${num()}, ${num()})`);
+      e.target.style.backgroundColor = `rgb(${num()}, ${num()}, ${num()})`;
     });
   }
 }
 
-
+function black(){
+  for (div of divs) {
+    div.addEventListener("mouseover", (e) => {
+      e.target.style.backgroundColor = `rgb(${blackRgb}, ${blackRgb}, ${blackRgb})`;
+    });
+  }
+}
 
