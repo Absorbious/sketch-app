@@ -19,7 +19,7 @@ function firstMake() {
     container.removeChild(container.lastChild);
   }
   while (input < 2 || input > 64) {
-    input = parseInt(prompt("Which grid dimensions? (Maximum 64) 2"));
+    input = parseInt(prompt("Which grid dimensions? (Maximum 64)"));
     boxes = input * input;
     boxWidth = (containerWidth / input).toString();
   }
@@ -27,7 +27,7 @@ function firstMake() {
 }
 
 function newGrid() {
-  newInput = parseInt(prompt("Which grid dimensions? (Maximum 64) 1"));
+  newInput = parseInt(prompt("Which grid dimensions? (Maximum 64)"));
   newBoxes = newInput * newInput;
   newBoxWidth = (containerWidth / newInput).toString();
   while (newInput < 2 || newInput > 64) {
