@@ -18,11 +18,10 @@ let newBoxWidth;
 let newBoxWidthStr;
 
 sliderVal.innerHTML = `${slider.value} x ${slider.value}`
+slider.addEventListener('input', () => {sliderVal.innerHTML = `${slider.value} x ${slider.value}`});
 slider.addEventListener('change', function(){
-  sliderVal.innerHTML = `${slider.value} x ${slider.value}`
-  input = slider.value;
-  boxes;
-  boxWidth;
+  boxes = slider.value * slider.value
+  boxWidth = (containerWidth / slider.value).toString();
   makeBoxes(boxes, boxWidth);
 })
 
