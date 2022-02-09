@@ -12,50 +12,31 @@ let blackRgb = 0;
 let boxes = input * input;
 let containerWidth = container.clientWidth;
 let boxWidth = (containerWidth / input).toString();
-let newInput;
-let newBoxes;
-let newBoxWidth;
-let newBoxWidthStr;
-
-sliderVal.innerHTML = `${slider.value} x ${slider.value}`
-slider.addEventListener('input', () => {sliderVal.innerHTML = `${slider.value} x ${slider.value}`});
-slider.addEventListener('change', function(){
-  boxes = slider.value * slider.value
-  boxWidth = (containerWidth / slider.value).toString();
-  makeBoxes(boxes, boxWidth);
-})
 
 let num = () => {
   return Math.floor(Math.random() * 255) + 1;
 };
 
 window.addEventListener("load", firstMake);
-resetBtn.addEventListener("click", newGrid);
+slider.addEventListener('change', updateBoxes)
+resetBtn.addEventListener("click", updateBoxes);
 rainbowBtn.addEventListener("click", rainbow);
 blackBtn.addEventListener("click", black);
 
-function firstMake() {
-  while (container.firstChild) {
-    container.removeChild(container.lastChild);
-  }
-  // while (input < 2 || input > 64) {
-  //   input = parseInt(prompt("Which grid dimensions? (Maximum 64)"));
-  //   boxes = input * input;
-  //   boxWidth = (containerWidth / input).toString();
-  // }
+slider.addEventListener('input', () => {sliderVal.innerHTML = `${slider.value} x ${slider.value}`});
+
+function updateBoxes(){
+  boxes = slider.value * slider.value
+  boxWidth = (containerWidth / slider.value).toString();
   makeBoxes(boxes, boxWidth);
 }
 
-function newGrid() {
-  newInput = parseInt(prompt("Which grid dimensions? (Maximum 64)"));
-  newBoxes = newInput * newInput;
-  newBoxWidth = (containerWidth / newInput).toString();
-  while (newInput < 2 || newInput > 64) {
-    newInput = parseInt(prompt("Which grid dimensions? (Maximum 64)"));
-    newBoxes = newInput * newInput;
-    newBoxWidth = (containerWidth / newInput).toString();
+function firstMake() {
+  sliderVal.innerHTML = `${slider.value} x ${slider.value}`
+  while (container.firstChild) {
+    container.removeChild(container.lastChild);
   }
-  makeBoxes(newBoxes, newBoxWidth);
+  makeBoxes(boxes, boxWidth);
 }
 
 function makeBoxes(boxCount, boxSize) {
@@ -89,18 +70,6 @@ function black() {
   for (div of divs) {
     div.addEventListener("mouseover", (e) => {
       e.target.style.backgroundColor = `rgb(${blackRgb}, ${blackRgb}, ${blackRgb})`;
-    });
-  }
-}
-
-function lighten() {
-  for (div of divs) {
-    div.addEventListener("mouseover", (e) => {
-      console.log(
-        (e.target.style.backgroundColor = `rgb(${blackRgb + 50}, ${
-          blackRgb + 10
-        }, ${blackRgb + 50})`)
-      );
     });
   }
 }
