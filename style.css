@@ -2,29 +2,58 @@ html{
     font-family: 'Roboto', sans-serif;
 }
 body{
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     gap: 30px;
+    background-color: rgb(255, 249, 240);
+}
+
+div{
+    margin: 0;
+    padding: 0;
+}
+
+button{
+    color: black;
+    background-color: rgba(0,0,0,0);
+    font-size: 1.1em;
+    padding: 10px 30px;
+    border: grey 1px solid;
+    border-radius: 20px;
+    transition: 0.15s linear;
+}
+
+button:hover{
+    background-color: rgba(255, 80, 80, 0.5);
+    border: white 1px solid;
+    color: white;
+    cursor: pointer;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
 .container {
-    width: 640px;
-    height: 640px;
+    width: 500px;
+    height: 500px;
     border: 1px solid black;
-    margin: auto;
+    border-radius: 5px;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     box-sizing: content-box;
-    gap: 0;
-    align-items:stretch;
 }
 
 .container div{
     border: none;
     box-sizing: border-box;
+    border-radius: 3px;
+    border: 1px solid white;
 }
 
 .container div:hover{
@@ -34,10 +63,14 @@ body{
 .active{
     background-color: black;
 }
-div{
-    margin: 0;
-    padding: 0;
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    align-items: center;
 }
+
 
 .inputDiv {
     display: flex;
@@ -46,3 +79,9 @@ div{
     justify-content: center;
     align-items: center;
 }
+
+.reset {
+    align-self: stretch;
+    margin-top: 10px;
+}
+
